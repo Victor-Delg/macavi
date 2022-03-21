@@ -1,0 +1,37 @@
+
+/*font-family: 'M PLUS 1', sans-serif; usar esta fuente para las letras de toda la pagina*/
+
+.title{
+    font-family: 'Inspiration', cursive;
+}
+/*bar top*/
+
+.bar{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+}
+
+.bar .logo img{
+    width: 80px;
+    height: "";
+}
+
+.bar_right{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-right: 3em;
+
+}
+.bar_right a{
+    display: block;
+    margin: 1.3em;
+    text-decoration: none;
+    font-family: 'M PLUS 1', sans-serif; 
+    border: 1px solid black;
+
+    
+
+}
