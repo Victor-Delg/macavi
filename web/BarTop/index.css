@@ -3,6 +3,9 @@
 
 .title{
     font-family: 'Inspiration', cursive;
+    font-size: 35px;
+    transition: all .8s ease-in ;
+    cursor: pointer;
 }
 /*bar top*/
 
@@ -12,6 +15,16 @@
     justify-content: space-between;
 
 }
+.bar .logo{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.title{
+    text-align: center;
+    margin-left: 0.5em;
+}
+
 
 .bar .logo img{
     width: 80px;
@@ -32,6 +45,25 @@
     font-family: 'M PLUS 1', sans-serif; 
     border: 1px solid black;
 
-    
+}
+.buttons{
+    font-size: 20px;
+    padding: 0.3em;
+    color: black;
+    transition: all 0.8s ease-in-out;
+}
+/*hovers*/
 
+.title:hover{
+    color: rgb(192, 134, 247);
+    transform: translateY(-1px)
+    
+}
+
+.buttons:hover{
+    border-radius: 10px;
+    background-color: rgb(192, 134, 247);
+    color: white;
+    border: 1px solid rgb(192, 134, 247);
+    box-shadow: 7px 5px 7px 2px rgba(192,134,247,0.3);
 }
