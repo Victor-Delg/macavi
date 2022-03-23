@@ -27,61 +27,8 @@ public class usuario {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_dni",nullable = false, referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_usu_dni"))
-    private long IdDni;
 
-    public long getId() {
-        return Id;
-    }
+    private IdDni idDni;
 
-    public void setId(long id) {
-        Id = id;
-    }
 
-    public String getNumeroDni() {
-        return NumeroDni;
-    }
-
-    public void setNumeroDni(String numeroDni) {
-        NumeroDni = numeroDni;
-    }
-
-    public String getNombre() {
-        return Nombre;
-    }
-
-    public void setNombre(String nombre) {
-        Nombre = nombre;
-    }
-
-    public String getLoginUsuario() {
-        return LoginUsuario;
-    }
-
-    public void setLoginUsuario(String loginUsuario) {
-        LoginUsuario = loginUsuario;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String password) {
-        Password = password;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
-
-    public long getIdDni() {
-        return IdDni;
-    }
-
-    public void setIdDni(long idDni) {
-        IdDni = idDni;
-    }
 }

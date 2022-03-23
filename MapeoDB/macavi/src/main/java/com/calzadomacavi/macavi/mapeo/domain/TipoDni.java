@@ -1,6 +1,7 @@
 package com.calzadomacavi.macavi.mapeo.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="tipo_dni", schema="mapeo",uniqueConstraints = {
@@ -11,6 +12,9 @@ public class TipoDni {
     private long id;
     @Column(name="nombre_dni", length=20 , nullable=false)
     private String NombreDni;
+
+    @OneToMany(mappedBy = "idDni")
+    private List<usuario> usuarioLists;
 
 
     public long getId() {
