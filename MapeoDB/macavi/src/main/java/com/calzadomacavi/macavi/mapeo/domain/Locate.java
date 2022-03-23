@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="locate", schema="mapeo",uniqueConstraints={
-    @UniqueConstraint(name="uk_locate", columnNames="departamento,pais,ciudad")
+    @UniqueConstraint(name="uk_locate", columnNames = {"departamento","pais","ciudad"})
 })
 public class Locate {
 
