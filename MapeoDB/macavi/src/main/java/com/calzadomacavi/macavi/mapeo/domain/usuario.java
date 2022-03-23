@@ -1,7 +1,6 @@
 package com.calzadomacavi.macavi.mapeo.domain;
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity
@@ -12,7 +11,7 @@ import java.util.List;
 
 })
 
-public class usuario {
+public class usuario  {
     @Id
     private long Id;
     @Column(name = "numero_dni", length = 50,nullable = false)
@@ -30,10 +29,8 @@ public class usuario {
     @JoinColumn(name = "id_tipo_dni",nullable = false, referencedColumnName = "id",
             foreignKey = @ForeignKey(name = "fk_usu_dni"))
 
-    private TipoDni tipoDni;
-
-    @OneToMany(mappedBy = "usuario")
-    private List<RolUsuario> usuarioList;
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "usuario")
+    private Cliente cliente;
 
     public long getId() {
         return Id;
