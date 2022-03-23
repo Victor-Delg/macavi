@@ -1,5 +1,7 @@
 package com.calzadomacavi.macavi.mapeo.domain;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +19,11 @@ public class Locate {
     private String departamento;
     @Column(name="ciudad", length=50, nullable=false)
     private String ciudad;
+
+    @OneToMany(mappedBy="loc")
+    private List<Cliente> clienteList;
+
+
 
     public long getId() {
         return this.id;

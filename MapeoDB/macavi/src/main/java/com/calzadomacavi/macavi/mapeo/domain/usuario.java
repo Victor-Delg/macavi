@@ -11,7 +11,7 @@ import javax.persistence.*;
 
 })
 
-public class usuario {
+public class usuario  {
     @Id
     private long Id;
     @Column(name = "numero_dni", length = 50,nullable = false)
@@ -28,6 +28,9 @@ public class usuario {
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_tipo_dni",nullable = false, referencedColumnName = "id",
             foreignKey = @ForeignKey(name = "fk_usu_dni"))
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "usuario")
+    private Cliente cliente;
 
     public long getId() {
         return Id;
