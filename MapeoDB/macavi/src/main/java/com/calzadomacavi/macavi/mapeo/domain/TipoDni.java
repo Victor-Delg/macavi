@@ -13,7 +13,7 @@ public class TipoDni {
     @Column(name="nombre_dni", length=20 , nullable=false)
     private String NombreDni;
 
-    @OneToMany(mappedBy = tipoDni")
+    @OneToMany(mappedBy = "tipoDni")
     private List<usuario> usuarioLists;
 
 
