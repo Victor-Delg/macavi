@@ -9,23 +9,23 @@ import javax.persistence.*;
 
 public class rol {
     @Id
-    private long id;
+    private long Id;
     @Column(name = "nombre_rol", length = 20, nullable = false)
-    private String nombreRol;
+    private String NombreRol;
 
     public long getId() {
-        return id;
+        return Id;
     }
 
     public void setId(long id) {
-        this.id = id;
+        Id = id;
     }
 
     public String getNombreRol() {
-        return nombreRol;
+        return NombreRol;
     }
 
     public void setNombreRol(String nombreRol) {
-        this.nombreRol = nombreRol;
+        NombreRol = nombreRol;
     }
 }
