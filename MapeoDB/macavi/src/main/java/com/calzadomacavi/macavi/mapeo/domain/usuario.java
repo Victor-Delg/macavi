@@ -29,6 +29,8 @@ public class usuario  {
     @JoinColumn(name = "id_tipo_dni",nullable = false, referencedColumnName = "id",
             foreignKey = @ForeignKey(name = "fk_usu_dni"))
 
+    private TipoDni tipoDni;
+
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "usuario")
     private Cliente cliente;
 

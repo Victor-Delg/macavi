@@ -20,7 +20,7 @@ public class Locate {
     @Column(name="ciudad", length=50, nullable=false)
     private String ciudad;
 
-    @OneToMany(mappedBy="loc")
+    @OneToMany(mappedBy="locate")
     private List<Cliente> clienteList;
 
 
