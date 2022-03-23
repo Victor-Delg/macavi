@@ -12,6 +12,22 @@ public class TipoDni {
     @Column(name="nombre_dni", length=20 , nullable=false)
     private String NombreDni;
 
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNombreDni() {
+        return this.NombreDni;
+    }
+
+    public void setNombreDni(String NombreDni) {
+        this.NombreDni = NombreDni;
+    }
     
 
     
