@@ -17,10 +17,9 @@ public class Cliente{
 
     @ManyToOne(optional=false)
     @JoinColumn(name="id_locate",nullable=false,referencedColumnName="id",foreignKey = @ForeignKey(name="fk_clie_loca"))
-
     private Locate locate;
 
-    @ManyToOne(optional = false)
+    @OneToOne
     @JoinColumn(name = "id_usuario", nullable=false, referencedColumnName="id", foreignKey= @ForeignKey(name="fk_usa_clie"))
 
     private usuario Usuario;
