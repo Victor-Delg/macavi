@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table (name = "usuario",schema = "mapeo", uniqueConstraints = {
-        @UniqueConstraint(name = "uk_dni", columnNames = {"id_dni","numero_dni"}),
+        @UniqueConstraint(name = "uk_dni", columnNames = {"id_tipo_dni","numero_dni"}),
         @UniqueConstraint(name = "uk_usuario_login", columnNames = "login_usuario"),
         @UniqueConstraint(name = "uk_email", columnNames = "email")
 
@@ -26,9 +26,10 @@ public class usuario {
     private String Email;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "id_dni",nullable = false, referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_usu_dni"))
+    @JoinColumn(name = "id_tipo_dni",nullable = false, referencedColumnName = "id",
+            foreignKey = @ForeignKey(name = "fk_usu_dni"))
 
-    private IdDni idDni;
+    private TipoDni tipoDni;
 
 
 }
