@@ -3,7 +3,7 @@ package com.calzadomacavi.macavi.mapeo.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name="tipo_dni",uniqueConstraints = {
+@Table(name="tipo_dni", schema="mapeo",uniqueConstraints = {
     @UniqueConstraint(name="uk_tipo_dni", columnNames="nombre_dni")
 })
 public class TipoDni {
