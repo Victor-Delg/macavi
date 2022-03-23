@@ -7,7 +7,8 @@ import javax.persistence.*;
 
 public class RolUsuario {
 
-    @PrimaryKeyJoinColumns(name = "id_rol")
+    @Id
+    private long Id;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "Id_rol",nullable = false, referencedColumnName = "id",
