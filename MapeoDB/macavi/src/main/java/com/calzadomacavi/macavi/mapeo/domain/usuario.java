@@ -28,7 +28,7 @@ public class usuario {
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_dni",nullable = false, referencedColumnName = "id",foreignKey = @ForeignKey(name = "fk_usu_dni"))
 
-    private IdDni idDni;
+    private TipoDni dni;
 
 
 }
