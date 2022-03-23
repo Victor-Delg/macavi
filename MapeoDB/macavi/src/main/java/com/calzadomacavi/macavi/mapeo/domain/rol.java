@@ -13,4 +13,19 @@ public class rol {
     @Column(name = "nombre_rol", length = 20, nullable = false)
     private String nombreRol;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNombreRol() {
+        return nombreRol;
+    }
+
+    public void setNombreRol(String nombreRol) {
+        this.nombreRol = nombreRol;
+    }
 }
