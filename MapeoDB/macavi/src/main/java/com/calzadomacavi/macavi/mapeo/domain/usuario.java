@@ -29,8 +29,6 @@ public class usuario {
     @JoinColumn(name = "id_tipo_dni",nullable = false, referencedColumnName = "id",
             foreignKey = @ForeignKey(name = "fk_usu_dni"))
 
-    private TipoDni tipoDni;
-
     public long getId() {
         return Id;
     }
@@ -79,11 +77,5 @@ public class usuario {
         Email = email;
     }
 
-    public TipoDni getTipoDni() {
-        return tipoDni;
-    }
-
-    public void setTipoDni(TipoDni tipoDni) {
-        this.tipoDni = tipoDni;
-    }
+    
 }

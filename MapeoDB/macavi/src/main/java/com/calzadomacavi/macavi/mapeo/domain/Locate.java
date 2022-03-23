@@ -3,8 +3,9 @@ package com.calzadomacavi.macavi.mapeo.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name="locate", schema="mapeo",uniqueConstraints={
-    @UniqueConstraint(name="uk_locate", columnNames = {"departamento","pais","ciudad"})
+@Table(name="locate", schema="mapeo",uniqueConstraints = {
+    @UniqueConstraint(name="uk_locate",
+    columnNames={"departamento","pais","ciudad"})
 })
 public class Locate {
 
