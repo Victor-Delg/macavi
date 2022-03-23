@@ -15,7 +15,7 @@ public class rol {
     private String NombreRol;
 
     @OneToMany(mappedBy = "rolUsuario")
-    private List<rol> rolList;
+    private List<RolUsuario> rolUsuarioList;
 
     public long getId() {
         return Id;

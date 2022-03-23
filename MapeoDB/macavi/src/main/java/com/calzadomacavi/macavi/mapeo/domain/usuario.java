@@ -1,6 +1,7 @@
 package com.calzadomacavi.macavi.mapeo.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -28,6 +29,11 @@ public class usuario {
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_tipo_dni",nullable = false, referencedColumnName = "id",
             foreignKey = @ForeignKey(name = "fk_usu_dni"))
+
+    private TipoDni tipoDni;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<RolUsuario> usuarioList;
 
     public long getId() {
         return Id;
