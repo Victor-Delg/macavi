@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name="cliente", schema="mapeo", uniqueConstraints={
     @UniqueConstraint(name="uk_usuario", columnNames="usuario")
 })
-public class Cliente {
+public class Cliente{
     @Id
     private long id;
     @Column(name="direcion", length=60, nullable=false)
