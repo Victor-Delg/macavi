@@ -5,6 +5,7 @@ import javax.xml.crypto.Data;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="factura", schema="mapeo")
@@ -36,15 +37,22 @@ public class Factura {
     private usuario usuario;
 
     //manytomany producto and factura
-    @GeneratedValue(strategy = GenerationType.TABLE, generator = "employee_gen")
-    @TableGenerator(name = "employee_gen", table = "id_gen", pkColumnName = "gen_name", valueColumnName = "gen_val", allocationSize = 100)
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "producto_factura", joinColumns = @JoinColumn(name = "id_factura"), inverseJoinColumns = @JoinColumn(name = "id_producto"))
-    private List<Producto> listProductos;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ManyToMany
+    @JoinTable(name = "ingredientes", 
+               joinColumns = { @JoinColumn( name="fk_factura") },
+               inverseJoinColumns = { @JoinColumn(name = "fk_producto") })    
+    Set<Producto> producto;
 
-    public String getId() {
-        return this.id;
-    }
+    @ManyToMany(targetEntity = Producto.class,
+                cascade = CascadeType.ALL )
+    private Set<Producto> producto2;
+
+
+
+
+
+
 
     public void setId(String id) {
         this.id = id;

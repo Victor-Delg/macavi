@@ -1,6 +1,7 @@
 package com.calzadomacavi.macavi.mapeo.domain;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -24,10 +25,10 @@ public class Producto {
     @Column(name="porcentaje_iva", length=4)
     private float porcentajeIva;
 
-    @ManyToMany(mappedBy = "listProductos", cascade = CascadeType.PERSIST)
-    private List<Factura> listFacturas;
-    @GeneratedValue(generator = "project_gen", strategy = GenerationType.TABLE)
-     @TableGenerator(name = "project_gen", allocationSize = 1, pkColumnName = "gen_name", valueColumnName = "gen_val", table = "id_gen")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ManyToMany(mappedBy = "facturas", 
+                fetch = FetchType.LAZY)
+    Set<Factura> facturas;
 
     public long getId(){
         return id;
