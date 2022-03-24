@@ -24,7 +24,7 @@ public class Producto {
     @Column(name="porcentaje_iva", length=4)
     private float porcentaje_iva;
 
-    @ManyToMany(mappedBy = "producto")
+    @ManyToMany(mappedBy = "productos")
     private List<Factura> factura ;
 
     public long getId(){

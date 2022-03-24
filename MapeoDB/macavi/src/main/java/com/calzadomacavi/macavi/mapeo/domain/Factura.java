@@ -3,6 +3,7 @@ package com.calzadomacavi.macavi.mapeo.domain;
 import javax.persistence.*;
 import javax.xml.crypto.Data;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -37,12 +38,20 @@ public class Factura {
     //manytomany producto and factura
 
     @JoinTable(
-        name = "product0_factura",
+        name = "producto    _factura",
         joinColumns = @JoinColumn(name = "id_factura", nullable = false),
         inverseJoinColumns = @JoinColumn(name="id_producto", nullable = false)
     )
     @ManyToMany(cascade = CascadeType.ALL)
-    private List<Producto> producto;
+    private List<Producto> productos;
+
+    public void addProducto(Producto producto){
+        if(this.productos == null){
+            this.productos = new ArrayList<>();
+        }
+        
+        this.productos.add(producto);
+    }
 
     public String getId() {
         return this.id;
