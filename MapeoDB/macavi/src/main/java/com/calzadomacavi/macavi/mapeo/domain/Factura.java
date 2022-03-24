@@ -3,6 +3,7 @@ package com.calzadomacavi.macavi.mapeo.domain;
 import javax.persistence.*;
 import javax.xml.crypto.Data;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name="factura", schema="mapeo")
@@ -32,6 +33,80 @@ public class Factura {
             foreignKey = @ForeignKey(name = "fk_fact_usuario")
     )
     private usuario usuario;
+
+    //manytomany producto and factura
+
+    @JoinTable(
+        name = "product0_factura",
+        joinColumns = @JoinColumn(name = "id_factura", nullable = false),
+        inverseJoinColumns = @JoinColumn(name="id_producto", nullable = false)
+    )
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Producto> producto;
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getFecha_fact() {
+        return this.fecha_fact;
+    }
+
+    public void setFecha_fact(LocalDateTime fecha_fact) {
+        this.fecha_fact = fecha_fact;
+    }
+
+    public LocalDateTime getFecha_venc() {
+        return this.fecha_venc;
+    }
+
+    public void setFecha_venc(LocalDateTime fecha_venc) {
+        this.fecha_venc = fecha_venc;
+    }
+
+    public int getTotal_factura() {
+        return this.total_factura;
+    }
+
+    public void setTotal_factura(int total_factura) {
+        this.total_factura = total_factura;
+    }
+
+    public String getDescripcion() {
+        return this.descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getTipo_pago() {
+        return this.tipo_pago;
+    }
+
+    public void setTipo_pago(String tipo_pago) {
+        this.tipo_pago = tipo_pago;
+    }
+
+    public Cliente getCliente() {
+        return this.cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public usuario getUsuario() {
+        return this.usuario;
+    }
+
+    public void setUsuario(usuario usuario) {
+        this.usuario = usuario;
+    }
 
 
 }

@@ -1,5 +1,7 @@
 package com.calzadomacavi.macavi.mapeo.domain;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -21,6 +23,9 @@ public class Producto {
     private int cantidad_producto;
     @Column(name="porcentaje_iva", length=4)
     private float porcentaje_iva;
+
+    @ManyToMany(mappedBy = "producto")
+    private List<Factura> factura ;
 
     public long getId(){
         return id;
