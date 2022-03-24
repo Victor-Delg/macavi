@@ -2,6 +2,7 @@ package com.calzadomacavi.macavi.mapeo.domain;
 
 import javax.persistence.*;
 import javax.xml.crypto.Data;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="factura", schema="mapeo")
@@ -10,9 +11,9 @@ public class Factura {
     @Id
     private String id;
     @Column(name="fecha_fact", length=4, nullable=false)
-    private Data fecha_fact;
+    private LocalDateTime fecha_fact;
     @Column(name="fecha_venc", length=4 )
-    private Data fecha_venc;
+    private LocalDateTime fecha_venc;
     @Column(name="total_factura", length=4, nullable=false)
     private int total_factura;
     @Column(name="descripcion", length=500, nullable=false)

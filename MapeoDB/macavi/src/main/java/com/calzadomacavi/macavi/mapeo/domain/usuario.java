@@ -36,7 +36,7 @@ public class usuario  {
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "Usuario")
     private Cliente cliente;
-    @OneToMany(mappedBy = "tipoDocumento")
+    @OneToMany(mappedBy = "usuario")
     private List<Factura> facturaList;
 
     @OneToMany (mappedBy = "usuario")

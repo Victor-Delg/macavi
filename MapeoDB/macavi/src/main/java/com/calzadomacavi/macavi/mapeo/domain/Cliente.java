@@ -26,7 +26,7 @@ public class Cliente{
 
     private usuario Usuario;
 
-    @OneToMany(mappedBy = "tipoDocumento")
+    @OneToMany(mappedBy = "cliente")
     private List<Factura> facturaList;
     
 }
