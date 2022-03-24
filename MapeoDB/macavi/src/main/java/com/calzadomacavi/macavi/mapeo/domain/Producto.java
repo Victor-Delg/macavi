@@ -1,5 +1,6 @@
 package com.calzadomacavi.macavi.mapeo.domain;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -25,10 +26,8 @@ public class Producto {
     @Column(name="porcentaje_iva", length=4)
     private float porcentajeIva;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ManyToMany(mappedBy = "facturas", 
-                fetch = FetchType.LAZY)
-    Set<Factura> facturas;
+
+
 
     public long getId(){
         return id;

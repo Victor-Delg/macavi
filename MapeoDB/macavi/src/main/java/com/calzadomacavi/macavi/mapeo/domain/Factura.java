@@ -1,28 +1,26 @@
 package com.calzadomacavi.macavi.mapeo.domain;
 
 import javax.persistence.*;
-import javax.xml.crypto.Data;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+
 
 @Entity
 @Table(name="factura", schema="mapeo")
 
 public class Factura {
     @Id
-    private String id;
+    private long id;
     @Column(name="fecha_fact", length=4, nullable=false)
-    private LocalDateTime fecha_fact;
+    private LocalDateTime fechaFact;
     @Column(name="fecha_venc", length=4 )
-    private LocalDateTime fecha_venc;
+    private LocalDateTime fechaVenc;
     @Column(name="total_factura", length=4, nullable=false)
-    private int total_factura;
+    private int totalFactura;
     @Column(name="descripcion", length=500, nullable=false)
     private String descripcion;
     @Column(name="tipo_pago", length=10, nullable=false)
-    private String tipo_pago;
+    private String tipoPago;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_cliente", nullable = false, referencedColumnName = "id",
@@ -36,51 +34,19 @@ public class Factura {
     )
     private usuario usuario;
 
-    //manytomany producto and factura
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @ManyToMany
-    @JoinTable(name = "ingredientes", 
-               joinColumns = { @JoinColumn( name="fk_factura") },
-               inverseJoinColumns = { @JoinColumn(name = "fk_producto") })    
-    Set<Producto> producto;
-
-    @ManyToMany(targetEntity = Producto.class,
-                cascade = CascadeType.ALL )
-    private Set<Producto> producto2;
 
 
 
 
 
-
-
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
     public LocalDateTime getFecha_fact() {
-        return this.fecha_fact;
+        return this.fechaFact;
     }
 
-    public void setFecha_fact(LocalDateTime fecha_fact) {
-        this.fecha_fact = fecha_fact;
-    }
-
-    public LocalDateTime getFecha_venc() {
-        return this.fecha_venc;
-    }
-
-    public void setFecha_venc(LocalDateTime fecha_venc) {
-        this.fecha_venc = fecha_venc;
-    }
-
-    public int getTotal_factura() {
-        return this.total_factura;
-    }
-
-    public void setTotal_factura(int total_factura) {
-        this.total_factura = total_factura;
-    }
 
     public String getDescripcion() {
         return this.descripcion;
@@ -90,13 +56,7 @@ public class Factura {
         this.descripcion = descripcion;
     }
 
-    public String getTipo_pago() {
-        return this.tipo_pago;
-    }
 
-    public void setTipo_pago(String tipo_pago) {
-        this.tipo_pago = tipo_pago;
-    }
 
     public Cliente getCliente() {
         return this.cliente;
@@ -109,6 +69,43 @@ public class Factura {
     public usuario getUsuario() {
         return this.usuario;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public LocalDateTime getFechaFact() {
+        return fechaFact;
+    }
+
+    public void setFechaFact(LocalDateTime fechaFact) {
+        this.fechaFact = fechaFact;
+    }
+
+    public LocalDateTime getFechaVenc() {
+        return fechaVenc;
+    }
+
+    public void setFechaVenc(LocalDateTime fechaVenc) {
+        this.fechaVenc = fechaVenc;
+    }
+
+    public int getTotalFactura() {
+        return totalFactura;
+    }
+
+    public void setTotalFactura(int totalFactura) {
+        this.totalFactura = totalFactura;
+    }
+
+    public String getTipoPago() {
+        return tipoPago;
+    }
+
+    public void setTipoPago(String tipoPago) {
+        this.tipoPago = tipoPago;
+    }
+
 
     public void setUsuario(usuario usuario) {
         this.usuario = usuario;
