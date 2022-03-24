@@ -75,19 +75,19 @@ public class Producto {
     }
 
     public int getCantidad_producto() {
-        return this.cantidad_producto;
+        return this.cantidadProducto;
     }
 
     public void setCantidad_producto(int cantidad_producto) {
-        this.cantidad_producto = cantidad_producto;
+        this.cantidadProducto = cantidad_producto;
     }
 
     public float getPorcentaje_iva() {
-        return this.porcentaje_iva;
+        return this.porcentajeIva;
     }
 
     public void setPorcentaje_iva(float porcentaje_iva) {
-        this.porcentaje_iva = porcentaje_iva;
+        this.porcentajeIva = porcentaje_iva;
     }
 
     

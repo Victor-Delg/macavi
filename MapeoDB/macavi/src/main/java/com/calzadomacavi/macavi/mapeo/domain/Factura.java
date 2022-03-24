@@ -38,10 +38,10 @@ public class Factura {
     //manytomany producto and factura
 
     @JoinTable(
-        name = "producto    _factura",
+        name = "producto_factura",
         joinColumns = @JoinColumn(name = "id_factura", nullable = false),
         inverseJoinColumns = @JoinColumn(name="id_producto", nullable = false)
-    )
+    )   
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Producto> productos;
 
