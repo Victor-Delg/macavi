@@ -36,7 +36,8 @@ public class Factura {
     private usuario usuario;
 
     //manytomany producto and factura
-
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "employee_gen")
+    @TableGenerator(name = "employee_gen", table = "id_gen", pkColumnName = "gen_name", valueColumnName = "gen_val", allocationSize = 100)
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "producto_factura", joinColumns = @JoinColumn(name = "id_factura"), inverseJoinColumns = @JoinColumn(name = "id_producto"))
     private List<Producto> listProductos;
