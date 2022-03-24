@@ -37,21 +37,9 @@ public class Factura {
 
     //manytomany producto and factura
 
-    @JoinTable(
-        name = "producto_factura",
-        joinColumns = @JoinColumn(name = "id_factura", nullable = false),
-        inverseJoinColumns = @JoinColumn(name="id_producto", nullable = false)
-    )   
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<Producto> productos;
-
-    public void addProducto(Producto producto){
-        if(this.productos == null){
-            this.productos = new ArrayList<>();
-        }
-        
-        this.productos.add(producto);
-    }
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(name = "producto_factura", joinColumns = @JoinColumn(name = "id_factura"), inverseJoinColumns = @JoinColumn(name = "id_producto"))
+    private List<Producto> listProductos;
 
     public String getId() {
         return this.id;

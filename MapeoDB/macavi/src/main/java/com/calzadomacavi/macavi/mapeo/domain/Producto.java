@@ -24,8 +24,8 @@ public class Producto {
     @Column(name="porcentaje_iva", length=4)
     private float porcentajeIva;
 
-    @ManyToMany(mappedBy = "productos")
-    private List<Factura> factura ;
+    @ManyToMany(mappedBy = "listProductos", cascade = CascadeType.PERSIST)
+    private List<Factura> listFacturas;
 
     public long getId(){
         return id;
