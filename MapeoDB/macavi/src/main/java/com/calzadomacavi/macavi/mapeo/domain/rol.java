@@ -14,7 +14,7 @@ public class rol {
     @Column(name = "nombre_rol", length = 20, nullable = false)
     private String NombreRol;
 
-    @OneToMany(mappedBy = "rolUsuario")
+    @OneToMany(mappedBy = "rol")
     private List<RolUsuario> rolUsuarioList;
 
     public long getId() {

@@ -1,6 +1,7 @@
 package com.calzadomacavi.macavi.mapeo.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -31,8 +32,11 @@ public class usuario  {
 
     private TipoDni tipoDni;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "usuario")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "Usuario")
     private Cliente cliente;
+
+    @OneToMany (mappedBy = "usuario")
+    private List <RolUsuario> rolUsuarioList;
 
     public long getId() {
         return Id;

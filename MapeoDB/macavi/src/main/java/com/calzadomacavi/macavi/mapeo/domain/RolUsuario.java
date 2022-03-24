@@ -11,17 +11,15 @@ public class RolUsuario {
     private long Id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "Id_rol",nullable = false, referencedColumnName = "id",
+    @JoinColumn(name = "Id_rol",nullable = false, referencedColumnName = "Id",
             foreignKey = @ForeignKey(name = "fk_rol_usua"))
 
-
-    private RolUsuario rolUsuario;
+    private rol rol;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "id_usuario",nullable = false, referencedColumnName = "id",
-            foreignKey = @ForeignKey(name = "fk_usua-rol"))
+    @JoinColumn(name = "id_usuario",nullable = false, referencedColumnName = "Id",
+            foreignKey = @ForeignKey(name = "fk_usua_rol"))
 
-    private RolUsuario usuario;
-
+    private usuario usuario;
 
 }
