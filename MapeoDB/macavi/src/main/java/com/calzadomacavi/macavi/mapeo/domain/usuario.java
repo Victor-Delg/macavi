@@ -1,5 +1,7 @@
 package com.calzadomacavi.macavi.mapeo.domain;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -33,6 +35,8 @@ public class usuario  {
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "usuario")
     private Cliente cliente;
+    @OneToMany(mappedBy = "tipoDocumento")
+    private List<Factura> facturaList;
 
     public long getId() {
         return Id;

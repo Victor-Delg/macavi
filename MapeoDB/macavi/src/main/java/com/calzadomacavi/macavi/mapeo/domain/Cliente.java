@@ -1,5 +1,7 @@
 package com.calzadomacavi.macavi.mapeo.domain;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -24,5 +26,7 @@ public class Cliente{
 
     private usuario Usuario;
 
+    @OneToMany(mappedBy = "tipoDocumento")
+    private List<Factura> facturaList;
     
 }
