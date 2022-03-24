@@ -20,9 +20,9 @@ public class Producto {
     @Column(name="estilo", length=20, nullable=false)
     private String estilo;
     @Column(name="cantidad_producto", length=4, nullable=false)
-    private int cantidad_producto;
+    private int cantidadProducto;
     @Column(name="porcentaje_iva", length=4)
-    private float porcentaje_iva;
+    private float porcentajeIva;
 
     @ManyToMany(mappedBy = "productos")
     private List<Factura> factura ;
