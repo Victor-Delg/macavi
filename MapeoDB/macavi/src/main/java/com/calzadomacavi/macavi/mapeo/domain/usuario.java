@@ -34,21 +34,6 @@ public class usuario  {
 
     private TipoDni tipoDni;
 
-
-
-    // pille perro hay le deje pailas mk no se pudo con las llaves sustitutas
-    // esa maricada no la pude hacer me toca decirle al profesor de eso mk
-    //pero bueno ya acabamos otra tarea mas
-
-
-
-
-
-
-
-
-
-
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "Usuario")
     private Cliente cliente;
     @OneToMany(mappedBy = "usuario")
