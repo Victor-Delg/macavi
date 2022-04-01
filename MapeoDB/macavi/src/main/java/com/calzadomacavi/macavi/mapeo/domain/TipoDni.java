@@ -9,12 +9,13 @@ import java.util.List;
 })
 public class TipoDni {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name="nombre_dni", length=20 , nullable=false)
     private String NombreDni;
 
     @OneToMany(mappedBy = "tipoDni")
-    private List<usuario> usuarioLists;
+    private List<Usuario> usuarioList;
 
 
     public long getId() {

@@ -24,7 +24,7 @@ public class Cliente{
     @OneToOne
     @JoinColumn(name = "id_usuario", nullable=false, referencedColumnName="id", foreignKey= @ForeignKey(name="fk_usa_clie"))
 
-    private usuario Usuario;
+    private Usuario Usuario;
 
     @OneToMany(mappedBy = "cliente")
     private List<Factura> facturaList;

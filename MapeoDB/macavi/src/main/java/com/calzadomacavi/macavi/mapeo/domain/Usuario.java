@@ -14,7 +14,7 @@ import java.util.List;
 
 })
 
-public class usuario  {
+public class Usuario {
     @Id
     private long Id;
     @Column(name = "numero_dni", length = 50,nullable = false)

@@ -14,12 +14,12 @@ public class RolUsuario {
     @JoinColumn(name = "Id_rol",nullable = false, referencedColumnName = "Id",
             foreignKey = @ForeignKey(name = "fk_rol_usua"))
 
-    private rol rol;
+    private Rol rol;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "id_usuario",nullable = false, referencedColumnName = "Id",
             foreignKey = @ForeignKey(name = "fk_usua_rol"))
 
-    private usuario usuario;
+    private Usuario usuario;
 
 }

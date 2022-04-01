@@ -32,7 +32,7 @@ public class Factura {
     @JoinColumn(name = "id_usuario", nullable = false, referencedColumnName = "id",
             foreignKey = @ForeignKey(name = "fk_fact_usuario")
     )
-    private usuario usuario;
+    private Usuario usuario;
 
 
 
@@ -66,7 +66,7 @@ public class Factura {
         this.cliente = cliente;
     }
 
-    public usuario getUsuario() {
+    public Usuario getUsuario() {
         return this.usuario;
     }
 
@@ -107,7 +107,7 @@ public class Factura {
     }
 
 
-    public void setUsuario(usuario usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 

@@ -8,7 +8,7 @@ import java.util.List;
         @UniqueConstraint(name = "uk_rol",columnNames = "nombre_rol")}
 )
 
-public class rol {
+public class Rol {
     @Id
     private long Id;
     @Column(name = "nombre_rol", length = 20, nullable = false)
