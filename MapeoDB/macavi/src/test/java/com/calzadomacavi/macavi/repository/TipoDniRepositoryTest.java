@@ -34,6 +34,7 @@ class TipoDniRepositoryTest {
     @Order(1)
     void insertar(){
         TipoDni tipoDocumento = new TipoDni();
+        tipoDocumento.setId(1);
         tipoDocumento.setNombreDni("cedula de ciudadania");
         this.tipoDniRepository.save(tipoDocumento);
 
