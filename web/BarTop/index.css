@@ -6,6 +6,7 @@
     font-size: 35px;
     transition: all .8s ease-in ;
     cursor: pointer;
+    color: indigo;
 }
 /*bar top*/
 
@@ -28,8 +29,8 @@
 
 
 .bar .logo .img{
-    width: 80px;
-    height: "";
+    width: 150px;
+    height: 150px;
 }
 
 .bar_right{
@@ -68,3 +69,4 @@
     border: 1px solid rgb(192, 134, 247);
     box-shadow: 7px 5px 7px 2px rgba(192,134,247,0.3);
 }
+
