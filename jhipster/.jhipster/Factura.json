@@ -1,6 +1,6 @@
 {
   "applications": ["macavi"],
-  "changelogDate": "20220429023756",
+  "changelogDate": "20220430175659",
   "dto": "mapstruct",
   "embedded": false,
   "entityTableName": "factura",

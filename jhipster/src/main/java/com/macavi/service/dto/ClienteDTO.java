@@ -12,10 +12,6 @@ public class ClienteDTO implements Serializable {
     private Long id;
 
     @NotNull
-    @Size(max = 50)
-    private String nombre;
-
-    @NotNull
     @Size(max = 60)
     private String direccion;
 
@@ -32,14 +28,6 @@ public class ClienteDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getDireccion() {
@@ -100,7 +88,6 @@ public class ClienteDTO implements Serializable {
     public String toString() {
         return "ClienteDTO{" +
             "id=" + getId() +
-            ", nombre='" + getNombre() + "'" +
             ", direccion='" + getDireccion() + "'" +
             ", telefono=" + getTelefono() +
             ", locate=" + getLocate() +

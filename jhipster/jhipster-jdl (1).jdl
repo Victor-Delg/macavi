@@ -20,7 +20,7 @@ application {
     searchEngine false
     clientTheme minty
     }
-    entities*
+    entities *
 }
 
 enum Pago{
@@ -47,7 +47,6 @@ entity Factura{
 }
 
 entity Cliente{
-	nombre String required maxlength (50),
 	direccion String required maxlength (60),
 	telefono Integer required,
 }

@@ -31,12 +31,6 @@ export const ClienteDetail = (props: RouteComponentProps<{ id: string }>) => {
           </dt>
           <dd>{clienteEntity.id}</dd>
           <dt>
-            <span id="nombre">
-              <Translate contentKey="macaviApp.cliente.nombre">Nombre</Translate>
-            </span>
-          </dt>
-          <dd>{clienteEntity.nombre}</dd>
-          <dt>
             <span id="direccion">
               <Translate contentKey="macaviApp.cliente.direccion">Direccion</Translate>
             </span>

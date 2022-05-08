@@ -18,7 +18,6 @@
         "title": "Cliente"
       },
       "id": "ID",
-      "nombre": "Nombre",
       "direccion": "Direccion",
       "telefono": "Telefono",
       "factura": "Factura",

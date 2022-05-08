@@ -1,6 +1,6 @@
 {
   "applications": ["macavi"],
-  "changelogDate": "20220429024156",
+  "changelogDate": "20220430180059",
   "dto": "mapstruct",
   "embedded": false,
   "entityTableName": "prod_fact",

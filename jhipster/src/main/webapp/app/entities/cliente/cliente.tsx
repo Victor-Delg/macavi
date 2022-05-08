@@ -104,9 +104,6 @@ export const Cliente = (props: RouteComponentProps<{ url: string }>) => {
                 <th className="hand" onClick={sort('id')}>
                   <Translate contentKey="macaviApp.cliente.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={sort('nombre')}>
-                  <Translate contentKey="macaviApp.cliente.nombre">Nombre</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
                 <th className="hand" onClick={sort('direccion')}>
                   <Translate contentKey="macaviApp.cliente.direccion">Direccion</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
@@ -130,7 +127,6 @@ export const Cliente = (props: RouteComponentProps<{ url: string }>) => {
                       {cliente.id}
                     </Button>
                   </td>
-                  <td>{cliente.nombre}</td>
                   <td>{cliente.direccion}</td>
                   <td>{cliente.telefono}</td>
                   <td>{cliente.locate ? <Link to={`/locate/${cliente.locate.id}`}>{cliente.locate.id}</Link> : ''}</td>

@@ -33,9 +33,6 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class ClienteResourceIT {
 
-    private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
-    private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
-
     private static final String DEFAULT_DIRECCION = "AAAAAAAAAA";
     private static final String UPDATED_DIRECCION = "BBBBBBBBBB";
 
@@ -69,7 +66,7 @@ class ClienteResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Cliente createEntity(EntityManager em) {
-        Cliente cliente = new Cliente().nombre(DEFAULT_NOMBRE).direccion(DEFAULT_DIRECCION).telefono(DEFAULT_TELEFONO);
+        Cliente cliente = new Cliente().direccion(DEFAULT_DIRECCION).telefono(DEFAULT_TELEFONO);
         // Add required entity
         Locate locate;
         if (TestUtil.findAll(em, Locate.class).isEmpty()) {
@@ -100,7 +97,7 @@ class ClienteResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Cliente createUpdatedEntity(EntityManager em) {
-        Cliente cliente = new Cliente().nombre(UPDATED_NOMBRE).direccion(UPDATED_DIRECCION).telefono(UPDATED_TELEFONO);
+        Cliente cliente = new Cliente().direccion(UPDATED_DIRECCION).telefono(UPDATED_TELEFONO);
         // Add required entity
         Locate locate;
         if (TestUtil.findAll(em, Locate.class).isEmpty()) {
@@ -143,7 +140,6 @@ class ClienteResourceIT {
         List<Cliente> clienteList = clienteRepository.findAll();
         assertThat(clienteList).hasSize(databaseSizeBeforeCreate + 1);
         Cliente testCliente = clienteList.get(clienteList.size() - 1);
-        assertThat(testCliente.getNombre()).isEqualTo(DEFAULT_NOMBRE);
         assertThat(testCliente.getDireccion()).isEqualTo(DEFAULT_DIRECCION);
         assertThat(testCliente.getTelefono()).isEqualTo(DEFAULT_TELEFONO);
     }
@@ -165,24 +161,6 @@ class ClienteResourceIT {
         // Validate the Cliente in the database
         List<Cliente> clienteList = clienteRepository.findAll();
         assertThat(clienteList).hasSize(databaseSizeBeforeCreate);
-    }
-
-    @Test
-    @Transactional
-    void checkNombreIsRequired() throws Exception {
-        int databaseSizeBeforeTest = clienteRepository.findAll().size();
-        // set the field null
-        cliente.setNombre(null);
-
-        // Create the Cliente, which fails.
-        ClienteDTO clienteDTO = clienteMapper.toDto(cliente);
-
-        restClienteMockMvc
-            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(clienteDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<Cliente> clienteList = clienteRepository.findAll();
-        assertThat(clienteList).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -233,7 +211,6 @@ class ClienteResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(cliente.getId().intValue())))
-            .andExpect(jsonPath("$.[*].nombre").value(hasItem(DEFAULT_NOMBRE)))
             .andExpect(jsonPath("$.[*].direccion").value(hasItem(DEFAULT_DIRECCION)))
             .andExpect(jsonPath("$.[*].telefono").value(hasItem(DEFAULT_TELEFONO)));
     }
@@ -250,7 +227,6 @@ class ClienteResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(cliente.getId().intValue()))
-            .andExpect(jsonPath("$.nombre").value(DEFAULT_NOMBRE))
             .andExpect(jsonPath("$.direccion").value(DEFAULT_DIRECCION))
             .andExpect(jsonPath("$.telefono").value(DEFAULT_TELEFONO));
     }
@@ -274,7 +250,7 @@ class ClienteResourceIT {
         Cliente updatedCliente = clienteRepository.findById(cliente.getId()).get();
         // Disconnect from session so that the updates on updatedCliente are not directly saved in db
         em.detach(updatedCliente);
-        updatedCliente.nombre(UPDATED_NOMBRE).direccion(UPDATED_DIRECCION).telefono(UPDATED_TELEFONO);
+        updatedCliente.direccion(UPDATED_DIRECCION).telefono(UPDATED_TELEFONO);
         ClienteDTO clienteDTO = clienteMapper.toDto(updatedCliente);
 
         restClienteMockMvc
@@ -289,7 +265,6 @@ class ClienteResourceIT {
         List<Cliente> clienteList = clienteRepository.findAll();
         assertThat(clienteList).hasSize(databaseSizeBeforeUpdate);
         Cliente testCliente = clienteList.get(clienteList.size() - 1);
-        assertThat(testCliente.getNombre()).isEqualTo(UPDATED_NOMBRE);
         assertThat(testCliente.getDireccion()).isEqualTo(UPDATED_DIRECCION);
         assertThat(testCliente.getTelefono()).isEqualTo(UPDATED_TELEFONO);
     }
@@ -371,8 +346,6 @@ class ClienteResourceIT {
         Cliente partialUpdatedCliente = new Cliente();
         partialUpdatedCliente.setId(cliente.getId());
 
-        partialUpdatedCliente.telefono(UPDATED_TELEFONO);
-
         restClienteMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedCliente.getId())
@@ -385,9 +358,8 @@ class ClienteResourceIT {
         List<Cliente> clienteList = clienteRepository.findAll();
         assertThat(clienteList).hasSize(databaseSizeBeforeUpdate);
         Cliente testCliente = clienteList.get(clienteList.size() - 1);
-        assertThat(testCliente.getNombre()).isEqualTo(DEFAULT_NOMBRE);
         assertThat(testCliente.getDireccion()).isEqualTo(DEFAULT_DIRECCION);
-        assertThat(testCliente.getTelefono()).isEqualTo(UPDATED_TELEFONO);
+        assertThat(testCliente.getTelefono()).isEqualTo(DEFAULT_TELEFONO);
     }
 
     @Test
@@ -402,7 +374,7 @@ class ClienteResourceIT {
         Cliente partialUpdatedCliente = new Cliente();
         partialUpdatedCliente.setId(cliente.getId());
 
-        partialUpdatedCliente.nombre(UPDATED_NOMBRE).direccion(UPDATED_DIRECCION).telefono(UPDATED_TELEFONO);
+        partialUpdatedCliente.direccion(UPDATED_DIRECCION).telefono(UPDATED_TELEFONO);
 
         restClienteMockMvc
             .perform(
@@ -416,7 +388,6 @@ class ClienteResourceIT {
         List<Cliente> clienteList = clienteRepository.findAll();
         assertThat(clienteList).hasSize(databaseSizeBeforeUpdate);
         Cliente testCliente = clienteList.get(clienteList.size() - 1);
-        assertThat(testCliente.getNombre()).isEqualTo(UPDATED_NOMBRE);
         assertThat(testCliente.getDireccion()).isEqualTo(UPDATED_DIRECCION);
         assertThat(testCliente.getTelefono()).isEqualTo(UPDATED_TELEFONO);
     }

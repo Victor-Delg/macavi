@@ -97,17 +97,6 @@ export const ClienteUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 />
               ) : null}
               <ValidatedField
-                label={translate('macaviApp.cliente.nombre')}
-                id="cliente-nombre"
-                name="nombre"
-                data-cy="nombre"
-                type="text"
-                validate={{
-                  required: { value: true, message: translate('entity.validation.required') },
-                  maxLength: { value: 50, message: translate('entity.validation.maxlength', { max: 50 }) },
-                }}
-              />
-              <ValidatedField
                 label={translate('macaviApp.cliente.direccion')}
                 id="cliente-direccion"
                 name="direccion"

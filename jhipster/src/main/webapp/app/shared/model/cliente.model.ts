@@ -4,7 +4,6 @@ import { ITipoDni } from 'app/shared/model/tipo-dni.model';
 
 export interface ICliente {
   id?: number;
-  nombre?: string;
   direccion?: string;
   telefono?: number;
   facturas?: IFactura[] | null;

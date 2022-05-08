@@ -23,11 +23,6 @@ public class Cliente implements Serializable {
     private Long id;
 
     @NotNull
-    @Size(max = 50)
-    @Column(name = "nombre", length = 50, nullable = false)
-    private String nombre;
-
-    @NotNull
     @Size(max = 60)
     @Column(name = "direccion", length = 60, nullable = false)
     private String direccion;
@@ -63,19 +58,6 @@ public class Cliente implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getNombre() {
-        return this.nombre;
-    }
-
-    public Cliente nombre(String nombre) {
-        this.setNombre(nombre);
-        return this;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getDireccion() {
@@ -185,7 +167,6 @@ public class Cliente implements Serializable {
     public String toString() {
         return "Cliente{" +
             "id=" + getId() +
-            ", nombre='" + getNombre() + "'" +
             ", direccion='" + getDireccion() + "'" +
             ", telefono=" + getTelefono() +
             "}";

@@ -1,16 +1,10 @@
 {
   "applications": ["macavi"],
-  "changelogDate": "20220429023856",
+  "changelogDate": "20220430175759",
   "dto": "mapstruct",
   "embedded": false,
   "entityTableName": "cliente",
   "fields": [
-    {
-      "fieldName": "nombre",
-      "fieldType": "String",
-      "fieldValidateRules": ["required", "maxlength"],
-      "fieldValidateRulesMaxlength": "50"
-    },
     {
       "fieldName": "direccion",
       "fieldType": "String",
