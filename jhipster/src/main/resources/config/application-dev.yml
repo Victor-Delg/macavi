@@ -34,7 +34,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:postgresql://macavif.postgres.database.azure.com:5432/macavi
     username: toor
-    password: Sena.2022
+    password: Manuelosma201
     hikari:
       poolName: Hikari
       auto-commit: false
