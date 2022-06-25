@@ -32,9 +32,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://macavif.postgres.database.azure.com:5432/macavi
-    username: toor
-    password: Manuelosma201
+    url: jdbc:postgresql://127.0.0.1:5432/macavi
+    username: postgres
+    password: toor
     hikari:
       poolName: Hikari
       auto-commit: false
