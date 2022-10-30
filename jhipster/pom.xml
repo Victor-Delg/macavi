@@ -4,6 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+   
 
     <groupId>com.macavi</groupId>
     <artifactId>macavi</artifactId>
@@ -28,6 +29,8 @@
         <java.version>11</java.version>
         <node.version>v16.14.0</node.version>
         <npm.version>8.6.0</npm.version>
+        <sonar.organization>victor-delg</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
